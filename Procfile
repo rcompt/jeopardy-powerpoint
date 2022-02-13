@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath Fact-Feel-App factfeel_server:app
+web: gunicorn --pythonpath Jeopardy-Builder-App jeopardy_server:app
