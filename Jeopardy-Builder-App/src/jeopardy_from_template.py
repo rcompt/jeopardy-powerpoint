@@ -43,7 +43,7 @@ class JeopardyBuilder:
 
     def build(self, categories, questions):
 
-        assert os.path.exists(self.template), 'provided `jeopardy_ppt` does not exist.'
+        assert os.path.exists(self.template), f'provided `jeopardy_ppt` does not exist. {self.template} cwd {os.getcwd()}'
 
         prs = Presentation(self.template)
 
