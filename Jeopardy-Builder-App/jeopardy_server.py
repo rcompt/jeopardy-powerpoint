@@ -12,11 +12,7 @@ from flask import Flask, render_template, request, jsonify, send_file
 
 from src.jeopardy_from_template import JeopardyBuilder
 
-import logging
 import sys
-
-logging.basicConfig(filename='Jeopardy_log.log', level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
- 
 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
@@ -49,7 +45,6 @@ def home():
 
 @app.route("/build",methods=["POST"])
 def build():
-    app.logger.info("Retrieved Data")
     if request.method == 'POST':
         questions = {
             _key : request.form[_key] for _key in _question_key
@@ -59,9 +54,6 @@ def build():
             _key : request.form[_key] for _key in _categories
         }
 
-        app.logger.info(questions)
-        app.logger.info(request.form)
-
         pptx_path = builder.build(categories, questions)
         
         return send_file(filename_or_fp = pptx_path, as_attachment=True)
@@ -69,4 +61,3 @@ def build():
 
 #if __name__ == "__main__":
 app.run(debug=True)
-log.info("App is running")
