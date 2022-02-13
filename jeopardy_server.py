@@ -8,32 +8,65 @@ Created on Wed Feb  9 18:52:42 2022
 import os
 import json
 
-from flask import Flask, render_template, request, jsonify
-import logging
+from flask import Flask, render_template, request, jsonify, send_file
 
-log = logging.getLogger("Jeopardy_log.txt")
+from src.jeopardy_from_template import JeopardyBuilder
+
+import logging
+import sys
+
+logging.basicConfig(filename='Jeopardy_log.log', level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+ 
 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
-#class NumpyArrayEncoder(JSONEncoder):
-#    def default(self, obj):
-#        if isinstance(obj, numpy.ndarray):
-#            return obj.tolist()
-#        return JSONEncoder.default(self, obj)
+
+_question_key = [
+    f"clue_{i+1}_{j+1}" for i in range(10) for j in range(5)
+]
+
+""" _question_key = list(zip(_question_key, [
+    f"answer_{i+1}_{j+1}" for i in range(10) for j in range(5)
+])) """
+
+_question_key.extend([
+    "clue_f_j"
+   # "answer_f_j"
+])
+
+_categories = [
+    f"category_{i+1}" for i in range(10)
+]
+
+builder = JeopardyBuilder(
+    template = "templates/jeopardy_template.pptx"
+)
 
 @app.route("/")
 def home():
     return render_template("home.html")
 
-@app.route("/predict",methods=["POST"])
-def predict():
-    if request.data:
-        #req_data = request.get_json()
-        #text = request.json.get('TEXT')
+@app.route("/build",methods=["POST"])
+def build():
+    app.logger.info("Retrieved Data")
+    if request.method == 'POST':
+        questions = {
+            _key : request.form[_key] for _key in _question_key
+        }
 
-        return
+        categories = {
+            _key : request.form[_key] for _key in _categories
+        }
 
-if __name__ == "__main__":
-    app.run(debug=True)
-    log.info("App is running")
+        app.logger.info(questions)
+        app.logger.info(request.form)
+
+        pptx_path = builder.build(categories, questions)
+        
+        return send_file(filename_or_fp = pptx_path, as_attachment=True)
+
+
+#if __name__ == "__main__":
+app.run(debug=True)
+log.info("App is running")

@@ -1,18 +1,38 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+	<style>
+		.col {
+		  font-size: 100%;
+		}
+		.row{
+			padding-top: .5%;
+			padding-bottom: .5%;
+		}
+		body {
+			padding-bottom: 1%;
+		}
+		h2{
+			padding-top: 1%;
+			padding-bottom: 1%;
+		}
+		h6 {
+			padding-top: .5%;
+		}
+		</style>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title> This is Jeopardy! </title>
+    <title> Jeopardy Powerpoint Creator </title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index')}}">JeopardyMaker</a>
+	  <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('home')}}">JeopardyMaker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,216 +44,246 @@
             </ul>
         </div>
     </nav>
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
+
+	<form method="POST" action="/build">
+
+		<h2>
+			Jeopardy Round
+		</h2>
+		<h5>
+			Categories
+		</h5>
+		<h6>
+			1st
+			<input name="category_1" type="text" class="form-control" placeholder="Category 1">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_1_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_1_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_1_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_1_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_1_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_1_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_1_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_1_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_1_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_1_5" type="text" class="form-control" placeholder="Answer">
+			</div>
 		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
+		
+		<h6>
+			2st
+			<input name="category_2" type="text" class="form-control" placeholder="Category 2">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_2_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_2_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_2_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_2_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_2_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_2_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_2_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_2_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_2_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_2_5" type="text" class="form-control" placeholder="Answer">
+			</div>
 		</div>
-	  </div>
+		
+		<h6>
+			3rd
+			<input name="category_3" type="text" class="form-control" placeholder="Category 3">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_3_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_3_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_3_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_3_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_3_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_3_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_3_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_3_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_3_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_3_5" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+		
+
+		<h6>
+			4th
+			<input name="category_4" type="text" class="form-control" placeholder="Category 4">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_4_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_4_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_4_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_4_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_4_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_4_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_4_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_4_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_4_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_4_5" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+
+		
+		<h6>
+			5th
+			<input name="category_5" type="text" class="form-control" placeholder="Category 5">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_5_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_5_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_5_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_5_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_5_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_5_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_5_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_5_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_5_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_5_5" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+		
+		<h2>
+			Double Jeopardy Round
+		</h2>
+		<h6>
+			6th
+			<input name="category_6" type="text" class="form-control" placeholder="Category 6">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_6_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_6_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_6_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_6_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_6_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_6_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_6_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_6_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_6_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_6_5" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+		
+		<h6>
+			7th
+			<input name="category_7" type="text" class="form-control" placeholder="Category 7">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_7_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_7_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_7_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_7_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_7_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_7_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_7_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_7_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_7_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_7_5" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+
+		<h6>
+			8th
+			<input name="category_8" type="text" class="form-control" placeholder="Category 8">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_8_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_8_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_8_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_8_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_8_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_8_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_8_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_8_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_8_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_8_5" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+
+		<h6>
+			9th
+			<input name="category_9" type="text" class="form-control" placeholder="Category 9">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_9_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_9_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_9_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_9_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_9_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_9_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_9_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_9_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_9_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_9_5" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+
+		<h6>
+			10th
+			<input name="category_10" type="text" class="form-control" placeholder="Category 10">
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_10_1" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_10_2" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_10_3" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_10_4" type="text" class="form-control" placeholder="Clue">
+			<input name="clue_10_5" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_10_1" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_10_2" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_10_3" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_10_4" type="text" class="form-control" placeholder="Answer">
+			<input name="answer_10_5" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+
+		<h6>
+			Final Jeopardy
+		</h6>
+		<div class="row">
+			<div class="col">
+			<input name="clue_f_j" type="text" class="form-control" placeholder="Clue">
+			</div>
+			<div class="col">
+			<input name="answer_f_j" type="text" class="form-control" placeholder="Answer">
+			</div>
+		</div>
+
+		
+		<input type="submit" class="btn btn-primary" >
 	</form>
 	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	
-	<form>
-	  <div class="row">
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		  <input type="text" class="form-control" placeholder="First name">
-		</div>
-		<div class="col">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		  <input type="text" class="form-control" placeholder="Last name">
-		</div>
-	  </div>
-	</form>
-	<button type="submit" class="btn btn-primary">Submit</button>
 	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
