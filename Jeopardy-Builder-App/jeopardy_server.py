@@ -36,7 +36,7 @@ _categories = [
 ]
 
 builder = JeopardyBuilder(
-    template = "templates/jeopardy_template.pptx"
+    template = "app/templates/jeopardy_template.pptx"
 )
 
 @app.route("/")
