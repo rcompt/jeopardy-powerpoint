@@ -59,5 +59,5 @@ def build():
         return send_file(filename_or_fp = pptx_path, as_attachment=True)
 
 
-#if __name__ == "__main__":
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
